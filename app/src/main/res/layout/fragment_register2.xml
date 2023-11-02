@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/smallbg"
+    android:foregroundGravity="fill_vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="50dp"
+            app:cardCornerRadius="180dp"
+            app:layout_constraintBottom_toTopOf="@+id/usernameEm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/zcashBlueDark"
+                    android:fitsSystemWindows="true"
+                    android:padding="15dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_baseline_person_24"
+                    tools:ignore="ContentDescription"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="-16dp"
+                    tools:visibility="visible" />
+
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/usernameEm"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape"
+            android:drawableStart="@drawable/ic_baseline_verified_user_24"
+            android:drawablePadding="10dp"
+            android:hint="@string/enter_username"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/emailEm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_view"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/emailEm"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawablePadding="10dp"
+            android:hint="@string/enter_email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/passwordEm"
+            app:layout_constraintEnd_toEndOf="@+id/usernameEm"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/usernameEm"
+            app:layout_constraintTop_toBottomOf="@+id/usernameEm"
+            tools:ignore="Autofill,TextFields" />
+
+        <EditText
+            android:id="@+id/passwordEm"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/shape"
+            android:drawableStart="@drawable/ic_baseline_security_24"
+            android:drawablePadding="5dp"
+            android:hint="Enter Password"
+            android:includeFontPadding="true"
+            android:inputType="textPersonName|textPassword"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/passwordEm2"
+            app:layout_constraintEnd_toEndOf="@+id/emailEm"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/emailEm"
+            app:layout_constraintTop_toBottomOf="@+id/emailEm"
+            tools:ignore="Autofill,HardcodedText" />
+
+
+        <EditText
+            android:id="@+id/passwordEm2"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/shape"
+            android:drawableStart="@drawable/ic_baseline_security_24"
+            android:drawablePadding="5dp"
+            android:hint="@string/confirm_password"
+            android:includeFontPadding="true"
+            android:inputType="textPersonName|textPassword"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonreg"
+            app:layout_constraintEnd_toEndOf="@+id/passwordEm"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/passwordEm"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEm"
+            tools:ignore="Autofill" />
+
+        <TextView
+            android:id="@+id/textViewLog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:padding="5dp"
+            android:text="Already have an account? LOGIN"
+            android:textAlignment="center"
+            android:textColor="@color/zcashWhite_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/buttonreg"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/buttonreg"
+            app:layout_constraintTop_toBottomOf="@+id/buttonreg"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/buttonreg"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/shape2"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/register"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewLog"
+            app:layout_constraintEnd_toEndOf="@+id/passwordEm2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/passwordEm2"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEm2"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="44dp"
+            android:clickable="true"
+            android:minWidth="24dp"
+            android:minHeight="24dp"
+            app:fabSize="mini"
+            app:layout_constraintStart_toStartOf="@+id/card_view"
+            app:layout_constraintTop_toTopOf="@+id/card_view"
+            app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+            tools:ignore="ContentDescription,KeyboardInaccessibleWidget,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="cursive"
+            android:text="@string/register_btn"
+            android:textColor="@color/zcashYellow_dark"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

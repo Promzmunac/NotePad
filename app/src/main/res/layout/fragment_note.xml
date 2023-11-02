@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        android:background="@drawable/smallbg">
+
+        <EditText
+            android:id="@+id/title_tv"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/smallbg"
+            android:elevation="2dp"
+            android:hint="@string/_title"
+            android:maxLength="15"
+            android:paddingStart="25dp"
+            android:shadowColor="@color/black"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textColorHint="@color/zcashBlack_87"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/submit_keyboard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry,TextFields" />
+
+        <EditText
+            android:id="@+id/text_note"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/smallbg"
+            android:foregroundGravity="center"
+            android:gravity="start|top"
+            android:hint="@string/enter_your_notes_here"
+            android:includeFontPadding="true"
+            android:inputType="textMultiLine"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hour_count"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/submit_keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_baseline_check_circle_24"
+            app:layout_constraintBottom_toBottomOf="@+id/hour_count"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/title_tv"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/hour_count"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="5dp"
+            android:shadowColor="@color/black"
+            android:elevation="2dp"
+            android:background="@drawable/smallbg"
+            android:hint="Hour"
+            android:inputType="number"
+            android:maxLength="5"
+            android:paddingStart="25dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/zcashBlack_dark"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/title_tv"
+            app:layout_constraintStart_toStartOf="@+id/title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/title_tv"
+            tools:ignore="Autofill" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="text_note"
+            tools:layout_editor_absoluteY="117dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,14 +25,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/zcashBlueDark"
-                    android:fitsSystemWindows="true"
-                    android:padding="15dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_baseline_person_24"
-                    tools:ignore="ContentDescription"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="-16dp"
-                    tools:visibility="visible" />
+                    tools:ignore="ContentDescription" />
 
         </androidx.cardview.widget.CardView>
 
@@ -136,7 +131,7 @@
             android:text="Already have an account? LOGIN"
             android:textAlignment="center"
             android:textColor="@color/zcashWhite_light"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/buttonreg"
@@ -185,7 +180,7 @@
             android:fontFamily="cursive"
             android:text="@string/register_btn"
             android:textColor="@color/zcashYellow_dark"
-            android:textSize="36sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

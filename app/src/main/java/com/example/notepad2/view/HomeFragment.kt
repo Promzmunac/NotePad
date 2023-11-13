@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.notepad2.viewmodel.UserViewModel
 import com.example.notepad2.R
 import com.example.notepad2.adapter.AdapterNote
@@ -52,7 +53,11 @@ class HomeFragment : Fragment() {
         // Initialize Adapter and bind RecyclerView to it
         adapter = AdapterNote(requireContext())
         binding.noteRv.adapter = adapter
-        binding.noteRv.layoutManager = LinearLayoutManager(requireContext())
+/*
+        binding.noteRv.layoutManager = LinearLayoutManager(requireContext())*/
+
+        binding.noteRv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
 
         updateUI()
         setUpSwipeToDelete()
@@ -68,13 +73,18 @@ class HomeFragment : Fragment() {
     private fun updateUI() {
         // Set FAB visibility based on noteList and
         // Update hourResult and noteList size
+        val empty = 0
 
         if (noteList.isEmpty()) {
             binding.floatingActionButton3.visibility = View.VISIBLE
+            binding.textView5.visibility = View.VISIBLE
+            binding.hourResult.text = empty.toString()
+            binding.dataCount.text = empty.toString()
+
         } else {
             binding.hourResult.text = Note.add(noteList).toString()
             binding.dataCount.text = noteList.size.toString()
-
+            binding.textView5.visibility = View.INVISIBLE
         }
     }
 

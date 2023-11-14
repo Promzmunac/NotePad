@@ -33,10 +33,10 @@ class LoginFragment : Fragment() {
         //initializing the viewModel
         userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
-        userViewModel.allUsers.observe(viewLifecycleOwner, Observer { Users ->
+        userViewModel.allUsers.observe(viewLifecycleOwner, Observer { users ->
             Log.d("KEY", "edit")
 
-            for (UserModel in Users){
+            for (UserModel in users){
                 Log.d("USER", "${UserModel.id}")
             }
         })
@@ -46,9 +46,6 @@ class LoginFragment : Fragment() {
     @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*i want to implement data that i have passed with bundle using
-             requireArguments().getString("MESSAGE")?.toUri().toString()*/
 
         val passWord = arguments?.getString("PASSWORD")
         binding.editTextTextPersonName3.text = Editable.Factory().newEditable(passWord) //Display the password on this fragment
@@ -89,7 +86,8 @@ class LoginFragment : Fragment() {
         }
 
         binding.textView3.setOnClickListener {
-            Toast.makeText(requireContext(), "Why did you forget your password boy", Toast.LENGTH_LONG).show()
-        }
+
+            Toast.makeText(requireContext(), "This Functionality Has not been Implemented", Toast.LENGTH_LONG).show()
+          }
     }
 }

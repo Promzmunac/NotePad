@@ -1,7 +1,12 @@
 package com.example.notepad2.view
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.notepad2.R
 import com.example.notepad2.databinding.FragmentNoteBinding
 import com.example.notepad2.model.datamodel.Note
+import com.example.notepad2.view.RegisterFragment.Companion.REQUEST_CODE
 import com.example.notepad2.viewmodel.UserViewModel
 
 class NoteFragment : Fragment() {
@@ -23,16 +29,15 @@ class NoteFragment : Fragment() {
     private var noteType:  String? = null
     private var position : Int? = null
     private var count : Int? = null
-
+    private var imgData =""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         // Inflate the layout for this fragment
         binding = FragmentNoteBinding.inflate(inflater, container, false)
-
-      // Instantiating the view model
         userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         return binding.root
@@ -48,6 +53,7 @@ class NoteFragment : Fragment() {
         position = arguments?.getInt("POSITION")
         count = arguments?.getInt("COUNT")
         noteId = arguments?.getLong("ID")
+        imgData = arguments?.getString("IMAGE").toString()
 
         if(position != null){
             setUpEditFields()
@@ -55,6 +61,10 @@ class NoteFragment : Fragment() {
 
         binding.submitKeyboard.setOnClickListener{
             submitData()
+        }
+
+        binding.fabImage.setOnClickListener {
+            toGallery()
         }
     }
 
@@ -64,7 +74,30 @@ class NoteFragment : Fragment() {
         binding.hourCount.text = Editable.Factory().newEditable(count.toString())
     }
 
+
+    @SuppressLint("IntentReset")
+    private fun toGallery(){
+
+        val gallery =  Intent( Intent.ACTION_PICK,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        gallery.type = "image/*"
+        startActivityForResult(gallery,  REQUEST_CODE)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK ){
+            binding.noteImage.setImageURI(data?.data)
+            binding.noteImage.visibility = View.VISIBLE
+            imgData = data?.data.toString()
+            Log.d("MESSAGE", imgData)
+        }
+    }
+
     private fun submitData() {
+
+
         val title = binding.titleTv.text.toString()
         val text = binding.textNote.text.toString()
         val hourCountText = binding.hourCount.text.toString()
@@ -77,18 +110,18 @@ class NoteFragment : Fragment() {
         if (noteType.equals("Edit")) {
             if (title.isNotEmpty() && text.isNotEmpty() &&  hourCountText.isNotEmpty()) {
 
-                val updatedNote = Note(title, text, hourCountText)
+                val updatedNote = Note(title, text, imgData, hourCountText)
                 updatedNote.noteId = noteId!!
 
                 userViewModel.updateNoteWrite(
-                    noteId!!, updatedNote.title, updatedNote.text, updatedNote.count)
+                    noteId!!, updatedNote.title, updatedNote.text,updatedNote.image, updatedNote.count.toInt())
 
                 Toast.makeText(requireContext(), "Note Updated..", Toast.LENGTH_LONG).show()
             }
         } else {
             if (title.isNotEmpty() && text.isNotEmpty()  &&  hourCountText.isNotEmpty()) {
 
-                userViewModel.insertNote(Note(title, text, hourCountText))
+                userViewModel.insertNote(Note(title, text, imgData,hourCountText))
                 Toast.makeText(requireContext(), "$title Added", Toast.LENGTH_LONG).show()
             }
         }
@@ -96,6 +129,5 @@ class NoteFragment : Fragment() {
         findNavController().navigate(R.id.action_noteFragment_to_homeFragment)
 
     }
-
 
 }

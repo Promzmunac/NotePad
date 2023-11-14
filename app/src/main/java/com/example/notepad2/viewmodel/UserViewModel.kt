@@ -52,9 +52,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
          repository.deleteNote(note)
     }
 
-    fun updateNoteWrite(noteId: Long, title: String, text: String, Count: String)
+    fun updateNoteWrite(noteId: Long, title: String, text: String,Image: String, Count: Int)
         = viewModelScope.launch(Dispatchers.IO){
-        return@launch repository.updateNoteWrite(noteId,title,text,Count)
+        return@launch repository.updateNoteWrite(noteId,title,text,Image,Count)
     }
 
 }

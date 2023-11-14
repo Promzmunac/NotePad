@@ -19,7 +19,7 @@ interface NoteDao {
     @Insert
     suspend fun insertNote(note: Note): Long
 
-    @Query("UPDATE note SET  title =:Title, text=:Text, count=:Count WHERE noteId=:noteId")
-    fun updateNoteWrite(noteId: Long, Title: String, Text: String, Count: String)
+    @Query("UPDATE note SET  title =:Title, text=:Text, image=:Image, count=:Count WHERE noteId=:noteId")
+    fun updateNoteWrite(noteId: Long, Title: String,Text: String,Image: String, Count: Int)
 
 }

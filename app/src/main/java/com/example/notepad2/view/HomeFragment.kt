@@ -77,14 +77,14 @@ class HomeFragment : Fragment() {
 
         if (noteList.isEmpty()) {
             binding.floatingActionButton3.visibility = View.VISIBLE
-            binding.textView5.visibility = View.VISIBLE
+            binding.startText.visibility = View.VISIBLE
             binding.hourResult.text = empty.toString()
             binding.dataCount.text = empty.toString()
 
         } else {
             binding.hourResult.text = Note.add(noteList).toString()
             binding.dataCount.text = noteList.size.toString()
-            binding.textView5.visibility = View.INVISIBLE
+            binding.startText.visibility = View.INVISIBLE
         }
     }
 
@@ -134,6 +134,7 @@ class HomeFragment : Fragment() {
             "TITLE" to currentNote.title,
             "TEXT" to currentNote.text,
             "POSITION" to position,
+            "IMAGE" to currentNote.image,
             "COUNT" to currentNote.count,
             "ID" to currentNote.noteId
         )

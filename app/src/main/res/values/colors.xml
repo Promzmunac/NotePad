@@ -8,14 +8,20 @@
     <color name="zcashWhite_light">#EDEDED</color>
     <color name="zcashBlack_87">#DD000000</color>
     <color name="zcashBlack_dark">#171717</color>
+    <color name="zcashDeepBlack">#050203</color>
 
     <color name="zcashGreen">#66BB6A</color>
-    <color name="zcashBlueDark">#4A90E2</color>
+    <color name="zcashNavyDark">#000435</color>
+    <color name="zcashNavy">#080E4B</color>
+    <color name="zcashBlueDark">#080E4B</color>
+
 
     <!-- yellows -->
     <color name="zcashYellow_light">#FFCF4A</color>
     <color name="zcashYellow">#FFB900</color>
     <color name="zcashYellow_dark">#FFAA17</color>
+    <color name="md_deep_orange_900">#BF360C</color>
+
 
 
 </resources>

@@ -18,11 +18,10 @@ class MainActivityReg : AppCompatActivity() {
 
         supportActionBar?.hide()
 
+        //Initialize the ViewModel using ViewModelProvider
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        // Initialize the ViewModel using ViewModelProvider
-       userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-
-       // Observe the LiveData for registered users
+        //Observe the LiveData for registered users
         userViewModel.allUsers.observe(this){ users ->
             Log.d("KEY", "${users?.size}")
             // Use safe call operator for potential null LiveData

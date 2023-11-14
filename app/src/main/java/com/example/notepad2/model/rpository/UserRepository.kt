@@ -33,9 +33,9 @@ class UserRepository(private val userDao: UserDao, private var noteDao: NoteDao)
         return noteDao.deleteNote(note)
    }
 
-   fun updateNoteWrite(noteId: Long, title: String, text: String, count: String) {
-        return noteDao.updateNoteWrite(noteId,title, text, count)
-   }
+    fun updateNoteWrite(noteId: Long, title: String, text: String, image: String, count: Int) {
+        return noteDao.updateNoteWrite(noteId,title, text, image, count)
+    }
 
 }
 
